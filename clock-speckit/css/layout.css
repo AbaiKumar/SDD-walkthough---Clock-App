@@ -1,0 +1,39 @@
+.clock-page {
+  width: 100%;
+  max-width: 72rem;
+  margin: 0 auto;
+  padding: var(--space-lg) var(--space-md);
+}
+
+.clock-page__title {
+  margin-bottom: var(--space-lg);
+  font-size: clamp(1.5rem, 4vw, 2rem);
+  text-align: center;
+}
+
+.clock-layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-lg);
+  align-items: center;
+}
+
+.clock-section__title {
+  margin-bottom: var(--space-md);
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.clock-page__notice {
+  margin-top: var(--space-md);
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .clock-layout {
+    grid-template-columns: 1fr 1fr;
+  }
+}

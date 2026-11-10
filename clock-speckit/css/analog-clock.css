@@ -1,0 +1,179 @@
+.analog-clock {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.analog-clock__dial {
+  --dial-size: min(80vw, 22rem);
+  position: relative;
+  width: var(--dial-size);
+  height: var(--dial-size);
+  border: 2px solid var(--color-ink);
+  border-radius: 50%;
+  background-color: var(--color-surface);
+}
+
+.analog-clock__numeral {
+  --angle: 0deg;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  color: var(--color-ink);
+  font-size: clamp(0.9rem, 3vw, 1.2rem);
+  font-weight: 600;
+  transform:
+    translate(-50%, -50%)
+    rotate(var(--angle))
+    translateY(calc(var(--dial-size) * -0.4))
+    rotate(calc(-1 * var(--angle)));
+}
+
+.analog-clock__numeral--12 {
+  --angle: 0deg;
+}
+
+.analog-clock__numeral--1 {
+  --angle: 30deg;
+}
+
+.analog-clock__numeral--2 {
+  --angle: 60deg;
+}
+
+.analog-clock__numeral--3 {
+  --angle: 90deg;
+}
+
+.analog-clock__numeral--4 {
+  --angle: 120deg;
+}
+
+.analog-clock__numeral--5 {
+  --angle: 150deg;
+}
+
+.analog-clock__numeral--6 {
+  --angle: 180deg;
+}
+
+.analog-clock__numeral--7 {
+  --angle: 210deg;
+}
+
+.analog-clock__numeral--8 {
+  --angle: 240deg;
+}
+
+.analog-clock__numeral--9 {
+  --angle: 270deg;
+}
+
+.analog-clock__numeral--10 {
+  --angle: 300deg;
+}
+
+.analog-clock__numeral--11 {
+  --angle: 330deg;
+}
+
+.analog-clock__tick {
+  --angle: 0deg;
+  position: absolute;
+  left: 50%;
+  top: 0;
+  width: 2px;
+  height: 0.75rem;
+  background-color: var(--color-ink);
+  transform: translateX(-50%) rotate(var(--angle));
+  transform-origin: 50% calc(var(--dial-size) / 2);
+}
+
+.analog-clock__tick--12 {
+  --angle: 0deg;
+}
+
+.analog-clock__tick--1 {
+  --angle: 30deg;
+}
+
+.analog-clock__tick--2 {
+  --angle: 60deg;
+}
+
+.analog-clock__tick--3 {
+  --angle: 90deg;
+}
+
+.analog-clock__tick--4 {
+  --angle: 120deg;
+}
+
+.analog-clock__tick--5 {
+  --angle: 150deg;
+}
+
+.analog-clock__tick--6 {
+  --angle: 180deg;
+}
+
+.analog-clock__tick--7 {
+  --angle: 210deg;
+}
+
+.analog-clock__tick--8 {
+  --angle: 240deg;
+}
+
+.analog-clock__tick--9 {
+  --angle: 270deg;
+}
+
+.analog-clock__tick--10 {
+  --angle: 300deg;
+}
+
+.analog-clock__tick--11 {
+  --angle: 330deg;
+}
+
+.analog-clock__tick--emphasis {
+  background-color: var(--color-accent);
+}
+
+.analog-clock__hand {
+  --hand-rotation: 0deg;
+  position: absolute;
+  left: 50%;
+  bottom: 50%;
+  background-color: var(--color-ink);
+  border-radius: var(--radius-round);
+  transform: translateX(-50%) rotate(var(--hand-rotation));
+  transform-origin: 50% 100%;
+}
+
+.analog-clock__hand--hour {
+  width: 6px;
+  height: 25%;
+}
+
+.analog-clock__hand--minute {
+  width: 4px;
+  height: 35%;
+}
+
+.analog-clock__hand--second {
+  width: 2px;
+  height: 42%;
+}
+
+.analog-clock__pin {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 0.75rem;
+  height: 0.75rem;
+  background-color: var(--color-ink);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}

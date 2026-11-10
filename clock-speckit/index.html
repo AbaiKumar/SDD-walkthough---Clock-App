@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A live analog and digital clock showing the current local time.">
+  <title>Analog and Digital Clock</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <main class="clock-page">
+    <h1 class="clock-page__title">Current Time</h1>
+
+    <section class="clock-layout" aria-label="Clock displays">
+      <section class="analog-clock" data-js-analog-clock aria-labelledby="analog-clock-title">
+        <h2 class="clock-section__title" id="analog-clock-title">Analog clock</h2>
+
+        <div class="analog-clock__dial" role="img" data-js-analog-label
+          aria-label="Analog clock showing 12:00 AM">
+          <span class="analog-clock__tick analog-clock__tick--12 analog-clock__tick--emphasis"
+            aria-hidden="true"></span>
+          <span class="analog-clock__tick analog-clock__tick--1" aria-hidden="true"></span>
+          <span class="analog-clock__tick analog-clock__tick--2" aria-hidden="true"></span>
+          <span class="analog-clock__tick analog-clock__tick--3 analog-clock__tick--emphasis"
+            aria-hidden="true"></span>
+          <span class="analog-clock__tick analog-clock__tick--4" aria-hidden="true"></span>
+          <span class="analog-clock__tick analog-clock__tick--5" aria-hidden="true"></span>
+          <span class="analog-clock__tick analog-clock__tick--6 analog-clock__tick--emphasis"
+            aria-hidden="true"></span>
+          <span class="analog-clock__tick analog-clock__tick--7" aria-hidden="true"></span>
+          <span class="analog-clock__tick analog-clock__tick--8" aria-hidden="true"></span>
+          <span class="analog-clock__tick analog-clock__tick--9 analog-clock__tick--emphasis"
+            aria-hidden="true"></span>
+          <span class="analog-clock__tick analog-clock__tick--10" aria-hidden="true"></span>
+          <span class="analog-clock__tick analog-clock__tick--11" aria-hidden="true"></span>
+
+          <span class="analog-clock__numeral analog-clock__numeral--12" aria-hidden="true">12</span>
+          <span class="analog-clock__numeral analog-clock__numeral--1" aria-hidden="true">1</span>
+          <span class="analog-clock__numeral analog-clock__numeral--2" aria-hidden="true">2</span>
+          <span class="analog-clock__numeral analog-clock__numeral--3" aria-hidden="true">3</span>
+          <span class="analog-clock__numeral analog-clock__numeral--4" aria-hidden="true">4</span>
+          <span class="analog-clock__numeral analog-clock__numeral--5" aria-hidden="true">5</span>
+          <span class="analog-clock__numeral analog-clock__numeral--6" aria-hidden="true">6</span>
+          <span class="analog-clock__numeral analog-clock__numeral--7" aria-hidden="true">7</span>
+          <span class="analog-clock__numeral analog-clock__numeral--8" aria-hidden="true">8</span>
+          <span class="analog-clock__numeral analog-clock__numeral--9" aria-hidden="true">9</span>
+          <span class="analog-clock__numeral analog-clock__numeral--10" aria-hidden="true">10</span>
+          <span class="analog-clock__numeral analog-clock__numeral--11" aria-hidden="true">11</span>
+
+          <span class="analog-clock__hand analog-clock__hand--hour" data-js-hour-hand
+            aria-hidden="true"></span>
+          <span class="analog-clock__hand analog-clock__hand--minute" data-js-minute-hand
+            aria-hidden="true"></span>
+          <span class="analog-clock__hand analog-clock__hand--second" data-js-second-hand
+            aria-hidden="true"></span>
+          <span class="analog-clock__pin" aria-hidden="true"></span>
+        </div>
+      </section>
+
+      <section class="digital-clock" data-js-digital-clock aria-labelledby="digital-clock-title">
+        <h2 class="clock-section__title" id="digital-clock-title">Digital clock</h2>
+
+        <time class="digital-clock__readout" data-js-time-element datetime="12:00"
+          aria-label="12:00 AM">
+          <span class="digital-clock__digit digital-clock__digit--highlight"
+            data-js-leading-digit>1</span>
+          <span class="digital-clock__digit" data-js-trailing-digit>2</span>
+          <span class="digital-clock__separator" aria-hidden="true">:</span>
+          <span class="digital-clock__minutes" data-js-minutes>00</span>
+          <span class="digital-clock__period" data-js-period>AM</span>
+        </time>
+
+        <noscript>
+          <p class="clock-page__notice">
+            JavaScript is disabled. The clock shows a static time and cannot update.
+          </p>
+        </noscript>
+      </section>
+    </section>
+  </main>
+
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>
