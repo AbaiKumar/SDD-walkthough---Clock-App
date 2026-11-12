@@ -4,6 +4,12 @@ A single-page clock that shows a live analog clock on the left and a live digita
 The analog dial uses light red tick marks at 3, 6, 9, and 12. The digital readout uses a 12-hour
 zero-padded format and highlights only the first hour digit in light red.
 
+## Spec-driven development
+
+This project was built with GitHub Spec Kit. The constitution, specification, plan, tasks, and
+validation artifacts live under `.specify/` and `specs/001-analog-digital-clock/`. For a full
+walkthrough of the workflow and the decisions made at each stage, see [SPECKIT.md](./SPECKIT.md).
+
 ## Run
 
 The page uses native ES modules, so serve it with any static file server from this directory:
@@ -26,6 +32,7 @@ There is no build step and no runtime dependency.
 
 ```text
 index.html                 Page shell and clock markup
+SPECKIT.md                 Spec Kit workflow walkthrough
 css/
   styles.css               Entry stylesheet
   base.css                 Reset, design tokens, page background
