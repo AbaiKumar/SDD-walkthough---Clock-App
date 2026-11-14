@@ -1,0 +1,236 @@
+:root {
+  /* Accent token: light red used by both clocks. */
+  --accent: #ff6b6b;
+
+  --face-size: 340px;
+  --numeral-radius: calc(var(--face-size) * 0.33);
+  --tick-radius: calc(var(--face-size) * 0.42);
+  --tick-length: calc(var(--face-size) * 0.035);
+
+  --bg: #0f172a;
+  --surface: #1e293b;
+  --text: #e2e8f0;
+  --muted: #cbd5e1;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: radial-gradient(circle at 50% 20%, #1e293b 0%, var(--bg) 60%);
+  color: var(--text);
+  font-family: "Segoe UI", system-ui, sans-serif;
+}
+
+/* Layout: analog left, digital right. */
+.clock-app {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(2rem, 6vw, 5rem);
+  min-height: 100vh;
+  padding: 2rem;
+}
+
+.clock {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ---------------- Analog clock ---------------- */
+
+.analog-face {
+  position: relative;
+  width: var(--face-size);
+  height: var(--face-size);
+  border-radius: 50%;
+  background: radial-gradient(circle at 50% 35%, #243449 0%, #111c2e 75%);
+  border: 0.5rem solid var(--surface);
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.06),
+    0 1.5rem 3rem rgba(0, 0, 0, 0.45);
+}
+
+/* Tick marks: 60 minute positions, every fifth one is longer. */
+.ticks {
+  position: absolute;
+  inset: 0;
+}
+
+.tick {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 2px;
+  height: var(--tick-length);
+  border-radius: 999px;
+  background: #64748b;
+  transform: translate(-50%, -50%) rotate(var(--angle))
+    translateY(calc(-1 * var(--tick-radius)));
+}
+
+.tick--hour {
+  width: 4px;
+  height: calc(var(--tick-length) * 1.9);
+  background: #94a3b8;
+}
+
+/* Hour numerals, upright at their clock positions. */
+.numerals {
+  position: absolute;
+  inset: 0;
+}
+
+.numeral {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  font-size: calc(var(--face-size) * 0.06);
+  font-weight: 600;
+  line-height: 1;
+  color: var(--muted);
+  transform: translate(-50%, -50%) rotate(var(--angle))
+    translateY(calc(-1 * var(--numeral-radius)))
+    rotate(calc(-1 * var(--angle)));
+}
+
+.num-12 {
+  --angle: 0deg;
+}
+
+.num-1 {
+  --angle: 30deg;
+}
+
+.num-2 {
+  --angle: 60deg;
+}
+
+.num-3 {
+  --angle: 90deg;
+}
+
+.num-4 {
+  --angle: 120deg;
+}
+
+.num-5 {
+  --angle: 150deg;
+}
+
+.num-6 {
+  --angle: 180deg;
+}
+
+.num-7 {
+  --angle: 210deg;
+}
+
+.num-8 {
+  --angle: 240deg;
+}
+
+.num-9 {
+  --angle: 270deg;
+}
+
+.num-10 {
+  --angle: 300deg;
+}
+
+.num-11 {
+  --angle: 330deg;
+}
+
+/* The 3, 6, 9 and 12 numerals are light red. */
+.accent {
+  color: var(--accent);
+}
+
+/* Hands pivot on the center of the dial. */
+.hand {
+  position: absolute;
+  left: 50%;
+  bottom: 50%;
+  transform-origin: 50% 100%;
+  border-radius: 999px;
+}
+
+.hand--hour {
+  width: 6px;
+  height: calc(var(--face-size) * 0.26);
+  margin-left: -3px;
+  background: var(--text);
+  transform: rotate(var(--hour-angle, 0deg));
+}
+
+.hand--minute {
+  width: 4px;
+  height: calc(var(--face-size) * 0.35);
+  margin-left: -2px;
+  background: var(--text);
+  transform: rotate(var(--minute-angle, 0deg));
+}
+
+.hand--second {
+  width: 2px;
+  height: calc(var(--face-size) * 0.4);
+  margin-left: -1px;
+  background: var(--accent);
+  transform: rotate(var(--second-angle, 0deg));
+}
+
+.pin {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: calc(var(--face-size) * 0.035);
+  height: calc(var(--face-size) * 0.035);
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 0 4px var(--surface);
+  transform: translate(-50%, -50%);
+}
+
+/* ---------------- Digital clock ---------------- */
+
+.digital-display {
+  display: flex;
+  align-items: baseline;
+  font-family: "Courier New", ui-monospace, monospace;
+  font-size: clamp(3.5rem, 9vw, 7rem);
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.02em;
+  text-shadow: 0 0 1.5rem rgba(255, 107, 107, 0.15);
+}
+
+/* Fixed-width slots keep the digits from shifting as they change. */
+.digit {
+  display: inline-block;
+  width: 0.66em;
+  text-align: center;
+}
+
+.colon {
+  display: inline-block;
+  width: 0.42em;
+  text-align: center;
+  color: var(--text);
+}
+
+/* Narrow viewports: stack the clocks so neither is clipped. */
+@media (max-width: 720px) {
+  .clock-app {
+    flex-direction: column;
+    gap: 3rem;
+  }
+
+  :root {
+    --face-size: min(280px, 78vw);
+  }
+}

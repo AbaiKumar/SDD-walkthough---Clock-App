@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Analog and Digital Clock</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="clock-app">
+      <section id="analog-clock" class="clock clock--analog" aria-label="Analog clock">
+        <div class="analog-face" id="analog-face">
+          <div class="ticks" id="ticks" aria-hidden="true"></div>
+
+          <div class="numerals">
+            <span class="numeral num-12 accent">12</span>
+            <span class="numeral num-1">1</span>
+            <span class="numeral num-2">2</span>
+            <span class="numeral num-3 accent">3</span>
+            <span class="numeral num-4">4</span>
+            <span class="numeral num-5">5</span>
+            <span class="numeral num-6 accent">6</span>
+            <span class="numeral num-7">7</span>
+            <span class="numeral num-8">8</span>
+            <span class="numeral num-9 accent">9</span>
+            <span class="numeral num-10">10</span>
+            <span class="numeral num-11">11</span>
+          </div>
+
+          <div class="hand hand--hour" id="hour-hand"></div>
+          <div class="hand hand--minute" id="minute-hand"></div>
+          <div class="hand hand--second" id="second-hand"></div>
+          <div class="pin" aria-hidden="true"></div>
+        </div>
+      </section>
+
+      <section id="digital-clock" class="clock clock--digital" aria-label="Digital clock">
+        <div class="digital-display" role="timer" aria-live="polite">
+          <span class="digit hour-tens accent" id="hour-tens">--</span>
+          <span class="digit hour-ones" id="hour-ones">-</span>
+          <span class="colon" aria-hidden="true">:</span>
+          <span class="digit minute-tens" id="minute-tens">-</span>
+          <span class="digit minute-ones" id="minute-ones">-</span>
+        </div>
+      </section>
+    </main>
+
+    <script src="clock.js"></script>
+  </body>
+</html>

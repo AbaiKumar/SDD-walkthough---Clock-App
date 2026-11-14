@@ -47,14 +47,14 @@ Expected: both clocks visible, aligned, and readable without scrolling.
 
 Expected: both clocks stay within one second of the device clock; the page never reloads or flickers.
 
-### 3. Analog tick mark emphasis (P2, FR-005, FR-006, SC-004)
+### 3. Analog quarter-hour emphasis (P2, FR-005, FR-006, SC-004)
 
 1. Inspect the analog dial.
-2. Confirm all twelve numerals are present and dark.
-3. Confirm only the tick marks at the 3, 6, 9, and 12 positions are light red.
-4. Confirm every other tick mark is dark.
+2. Confirm all twelve numerals are present.
+3. Confirm the numerals and tick marks at the 3, 6, 9, and 12 positions are light red.
+4. Confirm the remaining eight numerals and eight tick marks are dark.
 
-Expected: exactly four accented tick marks and zero accented numerals.
+Expected: exactly four accented numerals and four accented tick marks, all sharing `--color-accent`.
 
 ### 4. Digital leading-digit emphasis (P3, FR-007, FR-008, SC-005)
 
@@ -94,28 +94,31 @@ Expected: no network request is required for time updates.
 
 ### 8. Accessibility and contrast (FR-011, SC-008)
 
-1. Check the light red markers against the light background; confirm they are clearly visible.
-2. Check dark numerals, tick marks, hands, and digits against the background.
-3. Inspect the analog dial's accessible name and the digital `<time>` value.
-4. Confirm the clock does not announce every tick in a screen reader.
+1. Check the light red numerals and tick marks against the light background; confirm they are clearly
+   distinguishable from the background and from the dark elements.
+2. Confirm the accent measures at least 3:1 against the background.
+3. Check dark numerals, tick marks, hands, and digits against the background; confirm at least 4.5:1.
+4. Inspect the analog dial's accessible name and the digital `<time>` value.
+5. Confirm the clock does not announce every tick in a screen reader.
 
-Expected: contrast thresholds from the UI contract are met, and the accessible time is available on
-demand.
+Expected: the 3:1 graphical contrast threshold is met by accented elements and the 4.5:1 threshold by
+default dark elements, and the accessible time is available on demand.
 
 ## Validation results
 
-Executed on 2026-11-10 in a Chromium browser served from `http://localhost:8000`.
+Executed on 2026-11-10 in a Chromium browser served from `http://localhost:8000`; scenarios 3 and 8
+re-validated on 2026-11-14 after adding the quarter-hour numeral accent.
 
 | Scenario | Result |
 |----------|--------|
 | 1. Side-by-side layout | PASS — two columns at 912 px and 900 px |
 | 2. Live in-place updates | PASS — datetime advanced after 2.2 seconds with no navigation |
-| 3. Analog tick emphasis | PASS — 12 ticks, exactly 4 accented, 0 accented numerals |
+| 3. Analog quarter-hour emphasis | PASS — 12 ticks and 12 numerals; exactly 4 of each accented (`12`, `3`, `6`, `9`) |
 | 4. Digital leading-digit emphasis | PASS — `12:20 PM` and `09:05 AM` highlight only the first hour digit |
 | 5. Midnight and noon | PASS — renderer checks produced `12:00 AM` and `12:00 PM` |
 | 6. Responsive stacking | PASS — single 468 px column at a 500 px viewport, no overflow |
 | 7. Offline behavior | PASS — no external resources requested |
-| 8. Accessibility and contrast | PASS — Lighthouse accessibility 1.0, best practices 1.0, SEO 1.0; accent contrast 3.7:1, ink contrast 14.76:1 |
+| 8. Accessibility and contrast | PASS — accent 3.70:1, ink 14.76:1 on white; accent numerals accepted at the 3:1 graphical threshold per SC-008 |
 
 ## Definition of done
 

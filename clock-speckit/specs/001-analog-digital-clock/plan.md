@@ -9,7 +9,7 @@
 ## Summary
 
 Build a single static page that shows a live analog clock on the left and a live digital clock on the
-right. The analog dial renders all twelve numerals in dark ink, with the tick marks at 3, 6, 9, and
+right. The analog dial renders all twelve numerals, with the numerals and tick marks at 3, 6, 9, and
 12 in light red. The digital readout uses a 12-hour zero-padded format (`09:05 AM`) and renders only
 the first hour digit in light red. Both clocks derive from one local-time source and update in place
 every second, with no full page reload. The implementation uses semantic HTML, BEM-styled CSS with

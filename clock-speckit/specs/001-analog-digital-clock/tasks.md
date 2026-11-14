@@ -72,15 +72,15 @@ Single static site at the repository root, per `plan.md`: `index.html`, `css/`, 
 
 ## Phase 4: User Story 2 - Identify Quarter-Hour Markers on the Analog Clock (Priority: P2)
 
-**Goal**: Make the tick marks at 3, 6, 9, and 12 light red while every numeral and every other tick mark stays dark.
+**Goal**: Make the numerals and tick marks at 3, 6, 9, and 12 light red while every other numeral and tick mark stays dark.
 
-**Independent Test**: Inspect the dial and confirm exactly four tick marks use the accent color, zero numerals use it, and all remaining ticks use the default color.
+**Independent Test**: Inspect the dial and confirm exactly four numerals and four tick marks use the accent color, and all remaining numerals and ticks use the default color.
 
 ### Implementation for User Story 2
 
-- [X] T015 [P] [US2] Add the `analog-clock__tick--emphasis` modifier to the tick marks at the 3, 6, 9, and 12 positions in `index.html`
-- [X] T016 [P] [US2] Style `.analog-clock__tick--emphasis` with `var(--color-accent)` and keep `.analog-clock__numeral` and all other `.analog-clock__tick` elements on `var(--color-ink)` in `css/analog-clock.css`
-- [X] T017 [US2] Reconcile markup and styles so exactly four tick marks are accented and no numeral is accented in `index.html` and `css/analog-clock.css`
+- [X] T015 [P] [US2] Add the `analog-clock__tick--emphasis` modifier to the tick marks and the `analog-clock__numeral--emphasis` modifier to the numerals at the 3, 6, 9, and 12 positions in `index.html`
+- [X] T016 [P] [US2] Style `.analog-clock__tick--emphasis` and `.analog-clock__numeral--emphasis` with `var(--color-accent)` and keep all other `.analog-clock__numeral` and `.analog-clock__tick` elements on `var(--color-ink)` in `css/analog-clock.css`
+- [X] T017 [US2] Reconcile markup and styles so exactly four numerals and four tick marks are accented and no other marker is accented in `index.html` and `css/analog-clock.css`
 
 **Checkpoint**: User Stories 1 and 2 both work independently.
 

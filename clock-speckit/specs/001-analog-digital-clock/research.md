@@ -71,11 +71,11 @@ All Technical Context items were resolved from the feature spec and project cons
 ## Decision 6: Color tokens and contrast
 
 - **Decision**: Define tokens on `:root`: `--color-surface: #ffffff`, `--color-ink: #1f2933`,
-  `--color-accent: #e5534b` (light red). Use the accent only for the four quarter tick marks and the
-  leading digital digit.
+  `--color-accent: #e5534b` (light red). Use the accent only for the four quarter-hour numerals and
+  tick marks and the leading digital digit.
 - **Rationale**: `#e5534b` against white measures approximately 3.7:1, meeting the spec's 3:1 marker
-  requirement, while `#1f2933` against white exceeds 4.5:1 for default elements. Tokens keep the
-  palette consistent and easy to adjust.
+  requirement for both the accented numerals and tick marks, while `#1f2933` against white exceeds
+  4.5:1 for default elements. Tokens keep the palette consistent and easy to adjust.
 - **Alternatives considered**:
   - `#ff6b6b`: rejected because it falls below 3:1 against white.
   - Per-component hex values: rejected by the constitution's design-token rule.

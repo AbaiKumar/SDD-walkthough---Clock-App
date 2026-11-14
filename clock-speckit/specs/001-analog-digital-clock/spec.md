@@ -12,9 +12,23 @@
 
 ### Session 2026-11-10
 
-- Q: Should the analog clock show all twelve hour numerals, or only the numerals at 3, 6, 9, and 12? → A: Show all twelve numerals, but make only the tick marks at the 3, 6, 9, and 12 positions light red.
+- Q: Should the analog clock show all twelve hour numerals, or only the numerals at 3, 6, 9, and 12? → A: Show all twelve numerals; the numerals and tick marks at the 3, 6, 9, and 12 positions are light red.
 - Q: How should the digital clock display hours for times before 10, such as five past nine in the morning? → A: 12-hour format with a leading zero, for example `09:05 AM`.
 - Q: Should the clocks be displayed on a dark background or a light background? → A: Light background with dark default elements.
+
+### Session 2026-11-12
+
+- Q: Should the analog clock's 3, 6, 9, and 12 numerals be changed to light red, or should the current specification stay as written with only the four tick marks accented? → A: Change the specification so the numerals at 3, 6, 9, and 12 are light red as well.
+- Q: If the numerals become red, should the four tick marks stay red too, or should the accent move entirely to the numerals? → A: Keep both the numerals and the tick marks at 3, 6, 9, and 12 light red.
+- Q: Is a darker red acceptable for numeral text so it meets 4.5:1 contrast at small sizes? → A: Yes, use a darker red for the accented numerals while keeping the tick marks light red.
+
+### Session 2026-11-14
+
+- Q: FR-006 and SC-008 require accented numeral text to meet 4.5:1 contrast, which the light red accent
+  (`#e5534b`, 3.7:1 on white) does not. Should the numerals use a darker red, or share the light red
+  accent at 3.7:1? → A: Accented numerals share the light red accent (`--color-accent`) with the tick
+  marks. The 4.5:1 text-contrast requirement is waived for these four numerals only; the 3:1
+  graphical-object threshold applies instead. This supersedes the 2026-11-12 answer about a darker red.
 
 ## User Scenarios & Testing *(mandatory)*
 
@@ -44,22 +58,21 @@ clock renders on the right, and both display the same current time after waiting
 
 ### User Story 2 - Identify Quarter-Hour Markers on the Analog Clock (Priority: P2)
 
-A visitor can quickly read the analog clock because the tick marks at the 3, 6, 9, and 12 positions
-stand out in light red from the remaining markers and numerals.
+A visitor can quickly read the analog clock because the numerals and tick marks at the 3, 6, 9, and
+12 positions stand out in light red from the remaining markers and numerals.
 
 **Why this priority**: This is the explicitly requested visual treatment for the analog clock and
 makes the main reference points easy to locate.
 
-**Independent Test**: View the analog clock and confirm that only the tick marks at the 3, 6, 9, and
-12 positions are light red while all twelve numerals and all other tick marks keep the default color.
+**Independent Test**: View the analog clock and confirm that the numerals and tick marks at the 3, 6,
+9, and 12 positions are light red while all other numerals and tick marks keep the default color.
 
 **Acceptance Scenarios**:
 
-1. **Given** the analog clock is visible, **When** the visitor looks at the dial, **Then** the tick
-   marks at the 3, 6, 9, and 12 positions are rendered in light red.
-2. **Given** the analog clock is visible, **When** the visitor compares the emphasized tick marks
-   with the rest of the dial, **Then** all twelve numerals and every other tick mark use the default
-   color.
+1. **Given** the analog clock is visible, **When** the visitor looks at the dial, **Then** the
+   numerals and tick marks at the 3, 6, 9, and 12 positions are rendered in light red.
+2. **Given** the analog clock is visible, **When** the visitor compares the emphasized markers with
+   the rest of the dial, **Then** all other numerals and tick marks use the default color.
 
 ---
 
@@ -111,9 +124,13 @@ in the default color.
   without requiring a page reload.
 - **FR-004**: The analog clock MUST show hour, minute, and second hands with the correct relative
   positions for the current time.
-- **FR-005**: The analog clock dial MUST show all twelve hour numerals in the default color.
-- **FR-006**: The tick marks at the 3, 6, 9, and 12 positions MUST be light red; all other tick marks
-  and all twelve numerals MUST use the default color.
+- **FR-005**: The analog clock dial MUST show all twelve hour numerals; the numerals at the 3, 6, 9,
+  and 12 positions MUST use the light red accent (`--color-accent`), and the other eight numerals MUST
+  use the default color.
+- **FR-006**: The tick marks at the 3, 6, 9, and 12 positions MUST use the same light red accent as
+  the numerals at those positions; all other tick marks MUST use the default color. The accented
+  numerals and tick marks MUST each achieve at least 3:1 contrast against the page background (see
+  SC-008 and the 2026-11-14 clarification).
 - **FR-007**: The digital clock MUST display hours and minutes in a 12-hour format with a leading
   zero for single-digit hours (for example, `09:05 AM`).
 - **FR-008**: The first digit of the digital clock's hour MUST be light red; the second hour digit,
@@ -145,14 +162,15 @@ in the default color.
 - **SC-002**: On screens narrower than 768 pixels, the analog clock appears above the digital clock
   with no horizontal scrolling.
 - **SC-003**: Both clocks show a time within one second of the device's system clock at all times.
-- **SC-004**: 100% of the tick marks at the 3, 6, 9, and 12 positions are light red, and no numeral
-  or other tick mark uses that color.
+- **SC-004**: 100% of the numerals and tick marks at the 3, 6, 9, and 12 positions use the red
+  accent, and no other numeral or tick mark uses that color.
 - **SC-005**: Exactly one character — the first digit of the hour — is light red on the digital
   display at every minute of the day.
 - **SC-006**: A visitor can read both clocks correctly within 3 seconds of the page becoming visible.
 - **SC-007**: The page displays both clocks within 2 seconds on a typical broadband connection.
-- **SC-008**: Light red markers achieve at least a 3:1 contrast ratio against the light page
-  background, and default dark elements achieve at least a 4.5:1 contrast ratio.
+- **SC-008**: Accented numerals and light red tick marks achieve at least a 3:1 contrast ratio against
+  the light page background, while default dark elements achieve at least a 4.5:1 contrast ratio. The
+  4.5:1 text threshold does not apply to the four accented numerals.
 
 ## Assumptions
 
@@ -160,8 +178,9 @@ in the default color.
   context imply it.
 - Single-digit hours are zero-padded so that the "first digit" emphasis is always well defined.
 - The digital clock shows hours and minutes only; seconds are represented by the analog second hand.
-- "Light red" means a pale red tone clearly distinguishable from the default dark elements and
-  readable against the light page background.
+- "Light red" means a red accent clearly distinguishable from the default dark elements and readable
+  against the light page background. The accented numerals and tick marks share one accent token; the
+  4.5:1 text threshold is intentionally waived for the four numerals.
 - The page is a standalone, single-screen experience with no navigation, settings, or time-zone
   selector.
 - The visitor's device provides an accurate local time; no external time service is used.

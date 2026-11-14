@@ -48,7 +48,7 @@ The active feature was created with sequential numbering, so it is `001-analog-d
 A single static page with:
 
 - A live **analog clock on the left** and a live **digital clock on the right**.
-- All twelve hour numerals in dark ink.
+- All twelve hour numerals, with the 3, 6, 9, and 12 numerals in light red.
 - **Light red tick marks** at the 3, 6, 9, and 12 positions only.
 - A **12-hour, zero-padded** digital readout such as `09:05 AM`.
 - **Only the first hour digit** in light red.
@@ -258,7 +258,7 @@ correctly found no new work because those three tasks were still open; it did no
 | One shared time snapshot | Both clocks always agree within a tick. |
 | One-second scheduler aligned to the next second | The display stays close to the device clock without drift. |
 | 12-hour zero-padded format | Matches the requested `12:20` example and makes the leading digit well defined. |
-| All twelve numerals, four accented ticks | The clarification chose numerals for readability and accents for the quarter-hour markers. |
+| All twelve numerals, four accented numerals and ticks | The clarification chose numerals for readability and accents for the quarter-hour markers. |
 | Light background, dark elements | Matches the clarified visual direction and keeps contrast high. |
 | Static no-JS baseline | The page still communicates a time and an explanation when scripting is unavailable. |
 | Manual validation | The constitution and spec explicitly exclude automated unit tests. |

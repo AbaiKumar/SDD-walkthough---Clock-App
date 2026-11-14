@@ -14,7 +14,7 @@ body
         ├── section.analog-clock[data-js-analog-clock]
         │   ├── heading (visually hidden or visible)
         │   └── div.analog-clock__dial[role="img"]
-        │       ├── span.analog-clock__numeral (×12)
+        │       ├── span.analog-clock__numeral (×12, four with --emphasis)
         │       ├── span.analog-clock__tick (×12, four with --emphasis)
         │       └── span.analog-clock__hand (hour, minute, second)
         └── section.digital-clock[data-js-digital-clock]
@@ -53,7 +53,8 @@ Hooks MUST be selected once at startup and MUST NOT be re-queried on every tick.
 - Elements: `analog-clock__dial`, `analog-clock__numeral`, `analog-clock__tick`,
   `analog-clock__hand`, `digital-clock__readout`, `digital-clock__digit`,
   `digital-clock__separator`, `digital-clock__minutes`, `digital-clock__period`.
-- Modifiers: `analog-clock__tick--emphasis` (positions 3, 6, 9, 12) and
+- Modifiers: `analog-clock__numeral--emphasis` (positions 3, 6, 9, 12),
+  `analog-clock__tick--emphasis` (positions 3, 6, 9, 12) and
   `digital-clock__digit--highlight` (first hour digit only).
 - The light red color MUST come from the `--color-accent` custom property, never a literal value in a
   component rule.
@@ -64,6 +65,7 @@ Hooks MUST be selected once at startup and MUST NOT be re-queried on every tick.
 |---------|---------------------|
 | Page background | Light (`--color-surface`) |
 | Numerals, default tick marks, hands, digital digits | Dark (`--color-ink`) |
+| Numerals at 3, 6, 9, 12 | Light red (`--color-accent`) |
 | Tick marks at 3, 6, 9, 12 | Light red (`--color-accent`) |
 | First hour digit | Light red (`--color-accent`) |
 | All other digital characters | Dark (`--color-ink`) |

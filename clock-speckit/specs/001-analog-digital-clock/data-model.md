@@ -44,7 +44,7 @@ The circular face and its moving hands.
 
 | Attribute | Cardinality | Rules |
 |-----------|-------------|-------|
-| `numerals` | 12 | Values 1–12, all rendered in the default dark color |
+| `numerals` | 12 | Values 1–12; the numerals at 3, 6, 9, and 12 use the light red accent, all others use the default dark color |
 | `tickMarks` | 12 | One per hour position; the marks at 3, 6, 9, and 12 use the light red accent, all others use the default color |
 | `hourHand` | 1 | Rotated by `hourAngle` |
 | `minuteHand` | 1 | Rotated by `minuteAngle` |
@@ -53,8 +53,8 @@ The circular face and its moving hands.
 
 ### Validation rules
 
-- Exactly four tick marks MUST carry the accent modifier: positions 3, 6, 9, and 12.
-- No numeral may carry the accent color.
+- Exactly four numerals and four tick marks MUST carry the accent: positions 3, 6, 9, and 12.
+- No numeral or tick mark outside those four positions may use the accent color.
 - All three hands MUST update from the same `ClockTime` snapshot.
 - The accessible label MUST be refreshed whenever the hands move.
 

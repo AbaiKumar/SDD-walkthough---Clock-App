@@ -77,6 +77,10 @@
   --angle: 330deg;
 }
 
+.analog-clock__numeral--emphasis {
+  color: var(--color-accent);
+}
+
 .analog-clock__tick {
   --angle: 0deg;
   position: absolute;
